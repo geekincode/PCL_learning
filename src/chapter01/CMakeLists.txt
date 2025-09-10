@@ -18,14 +18,40 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-add_executable(point_convert src/point_convert.cpp)
-target_link_libraries(point_convert ${PCL_LIBRARIES})
+# add_executable(point_convert src/point_convert.cpp)
+# target_link_libraries(point_convert ${PCL_LIBRARIES})
 
-add_executable(create_point src/create_point.cpp)
-target_link_libraries(create_point ${PCL_LIBRARIES})
+# add_executable(create_point src/create_point.cpp)
+# target_link_libraries(create_point ${PCL_LIBRARIES})
 
-add_executable(create_point_color src/create_point_color.cpp)
-target_link_libraries(create_point_color ${PCL_LIBRARIES})
+# add_executable(create_point_color src/create_point_color.cpp)
+# target_link_libraries(create_point_color ${PCL_LIBRARIES})
+
+# 查找 src 目录下的所有 .cpp 源文件
+file(GLOB SOURCE_FILES "./src/*.cpp")
+message("--------------------------------------------------")
+message("SOURCE_FILES:")
+foreach(SRC_FILE ${SOURCE_FILES})
+    message("  ${SRC_FILE}")
+endforeach()
+message("--------------------------------------------------")
+
+# 循环处理每个源文件
+foreach(SRC_FILE ${SOURCE_FILES})
+    # 提取源文件名（不含扩展名）作为目标名称
+    get_filename_component(TARGET_NAME ${SRC_FILE} NAME_WE)
+    message("TARGET_NAME: ${TARGET_NAME}")
+    
+    # 添加可执行文件
+    add_executable(${TARGET_NAME} ${SRC_FILE})
+    
+    # 链接 PCL 库
+    target_link_libraries(${TARGET_NAME} ${PCL_LIBRARIES})
+    
+    # 将目标名称加入列表，供后续安装使用
+    list(APPEND EXECUTABLE_TARGETS ${TARGET_NAME})
+endforeach()
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -42,9 +68,12 @@ endif()
 install(DIRECTORY include
   DESTINATION include/${PROJECT_NAME}
 )
-install(TARGETS point_convert create_point create_point_color
+install(TARGETS ${EXECUTABLE_TARGETS}
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
+# message("--------------------------------------------------")
+# message(${EXECUTABLE_TARGETS})
+
 install(DIRECTORY pcd
   DESTINATION share/${PROJECT_NAME}
 )
