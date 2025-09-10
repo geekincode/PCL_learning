@@ -11,7 +11,7 @@ typedef pcl::PointXYZRGBA pointcolor;
 int main(int argc,char **argv)
 {
         pcl::PointCloud<pointcolor>::Ptr input (new pcl::PointCloud<pointcolor>);
-        pcl::io::loadPCDFile(argv[1],*input);
+        pcl::io::loadPCDFile(argv[1],*input);           // ros2 run chapter01 point_convert src/chapter01/pcd/pyramid_color.pcd
         
  
         pcl::PointCloud<point>::Ptr output (new pcl::PointCloud<point>);
@@ -30,6 +30,8 @@ int main(int argc,char **argv)
         output->height = M;
         
         cout<< "size is"<<output->size()<<endl;
-        pcl::io::savePCDFile("output.pcd",*output);
+        pcl::io::savePCDFile("./src/chapter01/pcd/convert.pcd",*output);
  
+        // 查看转换后的pcd文件
+        // pcl_viewer src/chapter01/pcd/convert.pcd
 }
