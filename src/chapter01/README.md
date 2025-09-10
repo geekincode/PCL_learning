@@ -39,4 +39,4 @@ colcon build 默认使用 console_cohesion 事件处理器，它会将每个包�
 
 * --event-handlers：指定事件处理器。
 * console_direct+：事件处理器名称，+ 表示启用该处理器，- 表示禁用（例如 console_cohesion- 表示禁用默认的汇总模式）。
-
+* --cmake-force-configure: 当你需要调试cmake并且使用colcon的时候，请加上这个参数，强制重新配置，避免第二次colcon跳过配置阶段。

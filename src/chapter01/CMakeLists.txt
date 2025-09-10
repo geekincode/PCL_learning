@@ -18,15 +18,6 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-# add_executable(point_convert src/point_convert.cpp)
-# target_link_libraries(point_convert ${PCL_LIBRARIES})
-
-# add_executable(create_point src/create_point.cpp)
-# target_link_libraries(create_point ${PCL_LIBRARIES})
-
-# add_executable(create_point_color src/create_point_color.cpp)
-# target_link_libraries(create_point_color ${PCL_LIBRARIES})
-
 # 查找 src 目录下的所有 .cpp 源文件
 file(GLOB SOURCE_FILES "./src/*.cpp")
 message("--------------------------------------------------")
