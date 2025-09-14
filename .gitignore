@@ -1,3 +1,4 @@
 build/
 install/
 log/
+third_party/vtk/build/
