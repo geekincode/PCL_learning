@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(chapter01)
+project(chapter02)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -65,8 +65,8 @@ install(TARGETS ${EXECUTABLE_TARGETS}
 # message("--------------------------------------------------")
 # message(${EXECUTABLE_TARGETS})
 
-# install(DIRECTORY pcd
-#   DESTINATION share/${PROJECT_NAME}
-# )
+install(DIRECTORY pcd
+  DESTINATION share/${PROJECT_NAME}
+)
 
 ament_package()
