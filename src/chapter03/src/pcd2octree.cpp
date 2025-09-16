@@ -12,7 +12,7 @@
 int main(int argc, char** argv)
 {
     // 检查文件是否存在
-    std::string filename = "/home/rm/PCL/pcl_ws/src/chapter03/pcd/ism_test_wolf.pcd";
+    std::string filename = "/home/rm/PCL/pcl_ws/src/chapter03/pcd/pyramid_color.pcd";
     std::ifstream file_check(filename);
     if (!file_check.good()) {
         std::cerr << "Error: PCD file '" << filename << "' does not exist or cannot be opened." << std::endl;
@@ -105,7 +105,7 @@ int main(int argc, char** argv)
 
     // Main visualization loop
     while (!viewer.wasStopped()) {
-        viewer.spinOnce(100);
+        viewer.spin();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
     
