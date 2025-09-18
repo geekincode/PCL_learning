@@ -69,6 +69,19 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "semaphore": "cpp"
+        "semaphore": "cpp",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "charconv": "cpp",
+        "codecvt": "cpp",
+        "regex": "cpp",
+        "source_location": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "slist": "cpp",
+        "future": "cpp",
+        "shared_mutex": "cpp",
+        "span": "cpp",
+        "valarray": "cpp"
     }
 }

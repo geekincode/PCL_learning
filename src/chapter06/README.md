@@ -1,4 +1,4 @@
-```
+```shell
 ros2 run chapter06 range_image_border_extraction -m ./src/chapter06/pcd/table_scene_lms400_downsampled.pcd
 ```
 
