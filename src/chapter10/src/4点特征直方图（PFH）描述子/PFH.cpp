@@ -2,10 +2,11 @@
 #include <pcl/point_types.h>
 #include <pcl/features/pfh.h>        // PFH 特征估计
 #include <pcl/features/normal_3d.h>  // 法线估计
-// #include <pcl/visualization/histogram_visualizer.h> // 直方图窗口可视化
 #include <pcl/visualization/pcl_plotter.h> // 使用PCLPlotter解决VTK兼容性问题
 #include <pcl/search/kdtree.h>       // KdTree搜索
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 /**
  * @brief 主函数：计算并可视化点云的PFH特征
@@ -83,11 +84,6 @@ int main(int argc, char** argv)
     // 根据经验教训和项目规范，使用PCLPlotter解决VTK兼容性问题
     pcl::visualization::PCLPlotter plotter;
     plotter.addFeatureHistogram(*pfh_features, "pfh", 0);
-    
-    std::cout << "正在显示第一个点的PFH特征直方图...\n";
-    std::cout << "提示：关闭可视化窗口以退出程序。\n";
-    
-    // 显示直方图
     plotter.plot();
 
     return 0;
